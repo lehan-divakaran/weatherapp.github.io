@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+    <style>
+      tr{
+        border-bottom: 1px solid rgb(252, 254, 179);
+      }
+    </style>
+    <link rel="stylesheet" href="">
+
+</head>
+<body style="background-image: url(trees-g4553cdc78_1920.jpg); background-size: cover; backdrop-filter: blur(2px);">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">weather app</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="sub.html">Subscription</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" onsubmit="handleSubmit(event)">
+              <input name="city"  id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <h1 class="m-4 text-center"style="color:white"><span id="cityname">Weather for </span></h1>
+        <main>  
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              <div class="col" style="opacity: 70%;">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3" style="background-color:rgb(27, 124, 251); color: white">
+                    <h4 class="my-0 fw-normal">Temperature</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">°C</small></h1>
+
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Temperature is <span id="temp"></span></li>
+                      <li>Minimum temperature is <span id="min_temp"></span></li>
+                      <li>Maximum temperature is <span id="max_temp"></span></li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="opacity: 70%;">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3" style="background-color:rgb(27, 124, 251); color:white;">
+                    <h4 class="my-0 fw-normal">Humidity Info</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title" style="color:aliceblue"><small class="text-muted fw-light">km/hr</small></h1>
+
+                    <h1 class="card-title pricing-card-title"><span id="humidity"></span><small class="text-muted fw-light"></small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>wind degree is <span id="wind_degrees"></span></li>
+                      <li>Feels like <span id="feels_like"></span></li>
+                      <li>Humidity is <span id="humidity"></span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="opacity: 70%;">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                  <div class="card-header py-3 text-bg-primary border-primary" style="background-color:rgb(63, 143, 247);">
+                    <h4 class="my-0 fw-normal">wind Info</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">km/hr</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>wind speed is <span id="wind_speed"></span></li>
+                      <li>sunset time is <span id="sunset"></span></li>
+                      <li>sunrise time is is <span id="sunrise"></span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <h2 class="display-6 text-center mb-4"style="color:white">weather of other major cities</h2>
+        
+            <div class="table-responsive">
+              <table class="table text-center" id="city-data-table" style="color: #fff;">
+                <thead>
+                  <tr>
+                    <th style="width: 34%;"></th>
+                    <th style="width: 22%;">Feels_like</th>
+                    <th style="width: 22%;">Humidity</th>
+                    <th style="width: 22%;">Max_temp</th>
+                    <th style="width: 22%;">Min_temp</th>
+                    <th style="width: 22%;">Sunrise</th>
+                    <th style="width: 22%;">Sunset</th>
+                    <th style="width: 22%;">Temp</th>
+                    <th style="width: 22%;">Wind_degrees</th>
+                    <th style="width: 22%;">Wind_speed</th>
+                  </tr>
+                </thead>
+                
+              </table>
+            </div>
+          </main>
+
+      </div>
+      
+
+    <script src="script.js"></script>
+</body>
+</html>
